@@ -39,33 +39,36 @@ gas station;
 restaurent MaxicanCantina
 ticketwindow
 bookHotel
-    If mountrainer is available for this season
-          sangita.Rent ReachNow ->pay amt  : Car;
-          sedancar = car;
-          sangita.drive -> gas station;
-          sangita.fillthegas->qulitygas , price , creditcard : filled gas;
-              sangita.drivetoRestaurent
-              sangita.viewMenu->orderDish : restaurent.servefood;
 
+If mountrainer is available for this season
+      sangita.Rent ReachNow ->pay amt  : Car;
 
-          
-              sangita.eatfood -> food , drink : MaxicanCantina;
-              sangita.payBill -> creditcard , name , tip 
-            
-            
-            sangita.driveToPark -> tickeT , price : ticket;
-            ticket = park;
+      sangita.drive -> gas station;
 
-            if(internet.available)
-            sangita.searchOnInternet -> back account , name ,roomtype ,checkinTime ,creditcard :BookRoom;
-            rainierViewroom = Bookroom;
-            sangita.checkinHotel -> name , room number , roomtype , checkintime , payAmount : gotKeys;
+      sangita.fillthegas->qulitygas , price , creditcard : filled gas;
 
-            else
-                sangita.drive -> hotel;
-                sangita.search -> availableRoom,creditcard , name :checkInRoom;
+      sangita.drivetoRestaurent
+
+      sangita.viewMenu->orderDish : restaurent.servefood;
+
+      sangita.eatfood -> food , drink : MaxicanCantina;
+
+      sangita.payBill -> creditcard , name , tip 
+        
+      sangita.driveToPark -> tickeT , price : ticket;
+
+      icket = park;
+
+      if(internet.available)
+          sangita.searchOnInternet -> back account , name ,roomtype ,checkinTime ,creditcard :BookRoom;
+          rainierViewroom = Bookroom;
+          sangita.checkinHotel -> name , room number , roomtype , checkintime , payAmount : gotKeys;
+
       else
-          sangita can not hike for this time , need to try next time.
+          sangita.drive -> hotel;
+          sangita.search -> availableRoom,creditcard , name :checkInRoom;
+else
+    sangita can not hike for this time , need to try next time.
 
 
 

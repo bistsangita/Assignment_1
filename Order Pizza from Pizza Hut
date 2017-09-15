@@ -1,0 +1,71 @@
+Order Pizza from Pizza Hut
+// you only wants to order from pizzaHut but does not know website
+
+Identify objects and behaviors
+Things(objects)/Entity:
+Information(Data)/state
+Service (Behaviors)/Actions
+
+Things
+Consumer:
+Data: Name , address , phoneNumber , creditcard , bank account ;
+Behavior: search , buy , cancel ;
+
+Internet
+Data : collection of websites ;
+Behavior : search for pizzahut website;
+
+pizzahut website
+Data : URL, types of pizza, BankAccount
+Behaviors : search, sort, display, customize, placeTheOrder;
+
+pizza
+Data : price range ,types, toppings , crust , size , sauce , cheese , crust flavor ;
+
+CreditCard 
+Data : Number, name, company, expiry, security code;
+
+CreditCardCompany
+Behavior : authorizeTransaction;
+
+Sequence of invoking behaviors on Objects:
+OrderPizzaFromPizzaHut:
+ 
+Consumer sangita,
+Internet internet,
+Website pizzaHut,
+Pizza hawaiianPizza,
+CreditCard card,
+CreditCardCompany visa,
+ShoppingConfirmationResponse,
+
+if(internet is available)
+	sangita.searchInInternet -> internet , question :collectionOfWebsites;
+	sangita.findPizzaHutWebsiteInFirstPage -> Collection of Websites : website
+		pageNumber = 1;
+		Loop
+			if sangita.findsNoPages
+				break
+			end
+			sangita.findPizzaHutWebsiteInAPage -> internet, question, page Number : website
+			pizzaHut = website;
+			If pizzaHut is not empty
+				break
+			else
+				pageNumber = pageNumber + 1
+			end
+		End
+		pizzaHut = website;
+		If pizzaHut is not empty or pizzaHut!=null
+			pizzaHut.searchForPizza -> priceRange, size, toppings : types of pizza;
+			hawaiianPizza= pizza;
+			sangita.orderPizza -> hawaiianPizza, creditCard, address, pizzaHut  :orderConfirmation
+
+			response = orderConfirmation
+		Else
+			sangita.cantOrderPizza
+else
+	sangita.browseInternetAfterAWhileBack;
+	
+	
+

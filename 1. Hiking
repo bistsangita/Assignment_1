@@ -1,0 +1,77 @@
+1. Hiking
+ 1.1. Rent a ReachNow to drive to mountain rainier on weekends with friends
+ 1.2. On the way, fill the gas
+ 1.3. On the way, eat at restaurant for lunch
+ 1.4. Buy the ticket to get into the park
+ 1.5. Book a hotel or check in the hotel.
+
+Objects and Behaviors:
+
+ReachNowRentService
+  Data :  price, cars,Bankaccount , creditcard
+  Behavior: bookCar, authorize
+
+Person
+  Data:  name, address , emailId , credit card
+  Behavior:
+
+Gas station
+  Data: Quality fuels, price ,credit card
+  Behavior : Dispense fuel
+
+  Restaurantas
+Data: Food , drinks , credit card
+Behavior : service
+
+TicketWindow:
+Data : Ticket , price , membership pass , credit card , checkintime
+Behavior : offerTicket
+
+Book a hotel :
+Data : types of room ,bankaccount
+Behavior : bookRoom , giveKey
+
+Sequence of Flow - Invoke Objects with Behaviors
+
+Person sangita;
+CarService Reachnow;
+gas station;
+restaurent MaxicanCantina
+ticketwindow
+bookHotel
+    If mountrainer is available for this season
+          sangita.Rent ReachNow ->pay amt  : Car;
+          sedancar = car;
+          sangita.drive -> gas station;
+          sangita.fillthegas->qulitygas , price , creditcard : filled gas;
+              sangita.drivetoRestaurent
+              sangita.viewMenu->orderDish : restaurent.servefood;
+
+
+          
+              sangita.eatfood -> food , drink : MaxicanCantina;
+              sangita.payBill -> creditcard , name , tip 
+            
+            
+            sangita.driveToPark -> tickeT , price : ticket;
+            ticket = park;
+
+            if(internet.available)
+            sangita.searchOnInternet -> back account , name ,roomtype ,checkinTime ,creditcard :BookRoom;
+            rainierViewroom = Bookroom;
+            sangita.checkinHotel -> name , room number , roomtype , checkintime , payAmount : gotKeys;
+
+            else
+                sangita.drive -> hotel;
+                sangita.search -> availableRoom,creditcard , name :checkInRoom;
+      else
+          sangita can not hike for this time , need to try next time.
+
+
+
+
+
+
+
+
+  

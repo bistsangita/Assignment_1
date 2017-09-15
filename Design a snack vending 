@@ -1,0 +1,76 @@
+\\Problem : Design a soft drink /snack vending machine
+
+Identify Objects and Behaviors:
+Thing (Object)/Entity:
+
+Information (Data)/(State)
+Services (Behaviors)/Actions
+Things
+
+vending machine :
+Data: soft drinks , snacks , product code;
+Behaviors : take order, take coins/notes, eject change money, cancel;
+
+consumer
+Data : credit card ,coins/dollarNotes
+Behaviors :find,enter code ,insert coin/note/credit card,place order ,collect ejected money , collect snack/soft drink;
+
+Snacks/Soft drinks
+  Data :  snacks[] snacks, soft drinks ,product code,size , brand ,expiry date, calorie content ;
+
+  Behaviors :
+
+
+CreditCard
+  Data : Number, name, company, expiry, security code
+  Behavior :
+
+CreditCardCompany
+  Behavior : authorizeTransaction
+
+Sequence of invoking behaviors on Objects:
+
+soft drink/snack vending machine:
+
+Consumer sangita
+Vending machine,
+Snacks/soft drink,
+Snack lays,
+Money coins/notes
+CreditCard card,
+CreditCarCompany visa
+Confirmation snack eject
+
+sangita.searchSnacks -> soft drinks , snacks , product code : snack;
+Lays = snack;
+sangita.enterCode -> display snack price;
+if(sangita use credit card)
+	sangita.swipeCreditCard->  lays, creditCard;
+			sangita.collect->lays
+			end;
+
+sangita.enterCoin/DollarNotes 
+if (coinValue/DollarNotes< snackPrice)
+		vendingMachine.display-> Unsufficient amount
+		sangita can not buy snack;
+		end;
+
+if (coinValue/DollarNotes>snackPrice)
+	vendingMachine.display-> changeMoney , LaysIsBeingDispense;
+	vendingMachine.dispense -> lays , changeMoney;
+	sangita.collect->lays , changeMoney;
+	end;
+
+
+if (coinValue/DollarNotes=snackPrice)
+	vendingMachine.display-> LaysIsBeingDispense;
+	vendingMachine.dispense -> lays;
+	sangita.collect->lays
+	end;
+
+
+
+
+
+
+

@@ -1,0 +1,112 @@
+Organise a career fair(Suppose you are the organiser)
+    cotact sponsors 
+    decide / book venue
+    decide the catagory of jobs for career fair
+    create schedule
+    make website of career fair.
+    send invitation to companys to participate in careerfair.
+    announce about career fair to all students.
+    organise workshops for students to build resume and prepare for interview
+    make website of career fair.
+    make arrangements for partcipant companies and students
+
+ 
+
+Identify Objects and Behaviors:
+Thing (Object)/Entity:
+
+Information (Data)/(State)
+Services (Behaviors)/Actions
+
+Organiser
+Data : Name , position , emailId , phone number;
+Behavior :plan;
+
+Sponsors
+Data : name , website , address , phone number,amount_money;
+Behavior : grant_money, set_stall, advertise;
+
+Venue
+Data : Address , time ;
+
+careerFair : 
+Data:jobs , companies , speakers , sponsors;
+Behavior :
+
+workshop 
+Data: teacher , students, topics ;
+Behavior : prepare for interview;
+
+Website
+Data : URL ,program schedule , participent companys , types of jobs , sponsors , venue , workshop details;
+Behavior : register;
+
+Recruiters:
+Data: job_info, company name, name, capacity, phone_number, email_address
+Behavior: take_resume, take_interviews, provide_information, offer_jobs
+
+arrangements : parking , food , drink , seating ;
+
+Sequence of invoking behaviors on Objects:
+
+Organise a career fair:
+
+Organiser sangita,
+Sponsors amazonInc , 
+Venue NeuSeattle,
+workshop,
+website jobFair.neu,
+arrangements,
+
+sangita.findSponsors -> companies , websites :list of sponsors;
+sponsorNumber=1
+Loop
+
+	if sangita.noMoreSponsorOnTheList
+		break;
+	end;
+	
+	sangita.contactSponsor -> sponsorList, sponsrNumber : response;
+	if response=approved
+		add sponsor to approvedSponsorList
+	end;
+
+	sponsorNumber = sponsorNumber + 1;
+end;
+
+sangita.findRecruiter ->companyName , jobInfo,emailAddress :list of recruiter;
+recruiterNumber = 1;
+Loop
+	if sangita.noMoreRecruiterOnTheList
+		break;
+	end;
+	sangita.contactRecruiter ->recruiterList , recruiterNumber : response;
+	if response=approved
+		add recruiter to approvedRecruiterList
+	end;
+	recruiterNumber = recruiterNumber + 1;
+
+sangita.findVenue -> address : NeuSeattle;
+
+sangita.createWebsite ->approvedSponsorList , approvedRecruiterList , venue :jobfair.neu;
+sangita.announcetostudents:webisite , venue , time ,workshops;
+sangita.conductWorkskshop : teachers , students;
+end;
+
+
+
+
+			
+				
+			
+
+
+
+
+
+
+
+
+
+ 
+

@@ -1,4 +1,5 @@
 \\Design a code sharing platform (eg: Github)
+
 Identify Objects and Behaviors:
 Thing (Object)/Entity:
 
@@ -13,14 +14,14 @@ repository
 data : codelanguage , access type ;
 
 codeHub plateform
-data : URL ,code display /UI ,  
+data : URL , code display/UI ,  
 behavior: authenticate , store code , search code , search project ;
 
 //jim wants to share a code with Tim using Codehub , where tim will download the code in his account and have access to edit and comment
 
 Sequence of Flow - 
 
-user jim , tim ;
+developer jim , tim ;
 repository program_neu
 CodeSharePlatform codeHub;
 
@@ -30,25 +31,26 @@ if(authorize is true)
 	jim.createRepository -> Program_neu
 	jim.editFile -> writecode ;
 	jim.uploadRepository;
-	//jim is sharing program_neu to tim
-	jim.add->Program_new :tim;
+    //jim is sharing program_neu to tim
+	jim.add-> Program_new : tim;
+end;
 
-		//tim log in to codehub
+//tim log in to codehub
 
-		tim.loginCodesharePlatform -> codehub :authorize;
+	tim.loginCodesharePlatform -> codehub :authorize;
 
-		if(authorize is true)
-			tim.searchRepository->program_neu;
-			if(accessToProgram_neu is true)
-				tim.downloadRepository -> Program_neu;
-				tim.viewRepository-> comment;
-			else
-				tim can not view program_neu;
+	if(authorize is true)
+		tim.searchRepository->program_neu;
+		if(accessToProgram_neu is true)
+			tim.downloadRepository -> Program_neu;
+			tim.viewRepository-> comment;
 		else
-			tim can not login;
+			tim can not view program_neu;
+	else
+		tim can not login;
 else 
 	jim can not login to codeshare;
-End
+end
 
 
 

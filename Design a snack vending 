@@ -32,7 +32,7 @@ Sequence of invoking behaviors on Objects:
 
 soft drink/snack vending machine:
 
-Consumer sangita
+Consumer sangita,
 Vending machine,
 Snacks/soft drink,
 Snack lays,
@@ -40,6 +40,7 @@ Money coins/notes
 CreditCard card,
 CreditCarCompany visa
 Confirmation snack eject
+//consumer go to snack vending machine for puchanging snacks
 
 sangita.searchSnacks -> soft drinks , snacks , product code : snack;
 Lays = snack;
@@ -47,26 +48,26 @@ sangita.enterCode -> display snack price;
 if(sangita use credit card)
 	sangita.swipeCreditCard->  lays, creditCard;
 			sangita.collect->lays
-			end;
+end;
 
 sangita.enterCoin/DollarNotes 
 if (coinValue/DollarNotes< snackPrice)
 		vendingMachine.display-> Unsufficient amount
 		sangita can not buy snack;
-		end;
+end;
 
 if (coinValue/DollarNotes>snackPrice)
 	vendingMachine.display-> changeMoney , LaysIsBeingDispense;
 	vendingMachine.dispense -> lays , changeMoney;
 	sangita.collect->lays , changeMoney;
-	end;
+end;
 
 
 if (coinValue/DollarNotes=snackPrice)
 	vendingMachine.display-> LaysIsBeingDispense;
 	vendingMachine.dispense -> lays;
 	sangita.collect->lays
-	end;
+end;
 
 
 

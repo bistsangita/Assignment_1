@@ -23,22 +23,22 @@ Gas station
 Data: Food , drinks , credit card
 Behavior : service
 
-TicketWindow:
+TicketWindow
 Data : Ticket , price , membership pass , credit card , checkintime
 Behavior : offerTicket
 
-Book a hotel :
+Book a hotel 
 Data : types of room ,bankaccount
 Behavior : bookRoom , giveKey
 
 Sequence of Flow - Invoke Objects with Behaviors
 
-Person sangita;
-CarService Reachnow;
-gas station;
-restaurent MaxicanCantina
-ticketwindow
-bookHotel
+Person sangita,
+CarService Reachnow,
+gas station,
+restaurent MaxicanCantina,
+ticketwindow,
+bookHotel,
 
 If mountrainer is available for this season
       sangita.Rent ReachNow ->pay amt  : Car;
@@ -47,26 +47,33 @@ If mountrainer is available for this season
 
       sangita.fillthegas->qulitygas , price , creditcard : filled gas;
 
-      sangita.drivetoRestaurent
+      sangita.drivetoRestaurent->restaurent
+      MaxicanCantina = restaurent;
 
-      sangita.viewMenu->orderDish : restaurent.servefood;
+      sangita.viewMenu->orderDish :MaxicanCantina.servefood;
 
       sangita.eatfood -> food , drink : MaxicanCantina;
 
-      sangita.payBill -> creditcard , name , tip 
+      sangita.payBill -> creditcard , name , tip ;
         
-      sangita.driveToPark -> tickeT , price : ticket;
+      sangita.driveToPark -> ticket , price : ticket;
 
-      icket = park;
+      ticket = park;
 
       if(internet.available)
-          sangita.searchOnInternet -> back account , name ,roomtype ,checkinTime ,creditcard :BookRoom;
+          sangita.searchOnInternet -> bank account , name ,roomtype ,checkinTime ,creditcard :BookRoom;
           rainierViewroom = Bookroom;
-          sangita.checkinHotel -> name , room number , roomtype , checkintime , payAmount : gotKeys;
+          sangita.drive ->hotel;
+          sangita.gotroomKey;
+          sangita.checkinHotel;
 
       else
           sangita.drive -> hotel;
-          sangita.search -> availableRoom,creditcard , name :checkInRoom;
+          sangita.search -> availableRoom,creditcard , name :Bookroom;
+          sangita.gotroomKey;
+          sangita.checkinHotel;
+
+
 else
     sangita can not hike for this time , need to try next time.
 

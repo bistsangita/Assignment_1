@@ -42,30 +42,31 @@ ShoppingConfirmationResponse,
 if(internet is available)
 	sangita.searchInInternet -> internet , question :collectionOfWebsites;
 	sangita.findPizzaHutWebsiteInFirstPage -> Collection of Websites : website
-		pageNumber = 1;
-		Loop
-			if sangita.findsNoPages
-				break
-			end
-			sangita.findPizzaHutWebsiteInAPage -> internet, question, page Number : website
-			pizzaHut = website;
-			If pizzaHut is not empty
-				break
-			else
-				pageNumber = pageNumber + 1
-			end
-		End
-		pizzaHut = website;
-		If pizzaHut is not empty or pizzaHut!=null
-			pizzaHut.searchForPizza -> priceRange, size, toppings : types of pizza;
-			hawaiianPizza= pizza;
-			sangita.orderPizza -> hawaiianPizza, creditCard, address, pizzaHut  :orderConfirmation
+	pageNumber = 1;
+	Loop
+	if sangita.findsNoPizzaHutWebsite
+		break;
+	end;
+	
+	sangita.findPizzaHutWebsiteInAPage -> internet, question, pageNumber : website
+	pizzaHut = website;
+	If pizzaHut is not empty
+			break
+	else
+		pageNumber = pageNumber + 1
+		end
+	end
+	pizzaHut = website;
+	If pizzaHut is not empty or pizzaHut!=null
+		pizzaHut.searchForPizza -> priceRange, size, toppings : types of pizza;
+		hawaiianPizza= pizza;
+		sangita.orderPizza -> hawaiianPizza, creditCard, address, pizzaHut  :orderConfirmation
 
-			response = orderConfirmation
-		Else
-			sangita.cantOrderPizza
+		response = orderConfirmation
+	else
+		sangita.cantOrderPizza;
 else
-	sangita.browseInternetAfterAWhileBack;
+sangita.browseInternetAfterAWhileBack;
 	
 	
 

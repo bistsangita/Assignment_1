@@ -19,7 +19,7 @@ Gas station
   Data: Quality fuels, price ,credit card
   Behavior : Dispense fuel
 
-  Restaurantas
+Restaurant
 Data: Food , drinks , credit card
 Behavior : service
 
@@ -36,7 +36,7 @@ Sequence of Flow - Invoke Objects with Behaviors
 Person sangita,
 CarService Reachnow,
 gas station,
-restaurent MaxicanCantina,
+restaurant MaxicanCantina,
 ticketwindow,
 bookHotel,
 
@@ -47,8 +47,8 @@ If mountrainer is available for this season
 
       sangita.fillthegas->qulitygas , price , creditcard : filled gas;
 
-      sangita.drivetoRestaurent->restaurent
-      MaxicanCantina = restaurent;
+      sangita.drivetoRestaurant->restaurant
+      MaxicanCantina = restaurant;
 
       sangita.viewMenu->orderDish :MaxicanCantina.servefood;
 
